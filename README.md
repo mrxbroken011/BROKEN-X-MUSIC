@@ -51,7 +51,6 @@ YTAPIURL=[https://mrbroken-brokenxbots.hf.space](https://mrbroken-brokenxbots.hf
 YTKEY=Get_From_Link_Above
 
 ```
-
 </details>
 
 ---
@@ -62,10 +61,10 @@ Deploy the bot to your preferred cloud platform with a single click.
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/mrxbroken011/BROKEN-X-MUSIC">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Deploy%2520on-Heroku-purple%3Fstyle%3Dfor-the-badge%26logo%3Dheroku" width="150" alt="Deploy on Heroku"/>
+<img src="https://img.shields.io/badge/Deploy%2520on-Heroku-purple%3Fstyle%3Dfor-the-badge%26logo%3Dheroku" width="150" alt="Deploy on Heroku"/>
 </a>
-<a href="https://www.google.com/search?q=https://render.com/deploy%3Frepo%3Dhttps://github.com/mrxbroken011/BROKEN-X-MUSIC">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Deploy%2520on-Render-white%3Fstyle%3Dfor-the-badge%26logo%3Drender%26labelColor%3Dblack" width="150" alt="Deploy on Render"/>
+<a href="https://render.com/deploy%3Frepo%3Dhttps://github.com/mrxbroken011/BROKEN-X-MUSIC">
+<img src="https://img.shields.io/badge/Deploy%2520on-Render-white%3Fstyle%3Dfor-the-badge%26logo%3Drender%26labelColor%3Dblack" width="150" alt="Deploy on Render"/>
 </a>
 </p>
 
@@ -73,8 +72,8 @@ Deploy the bot to your preferred cloud platform with a single click.
 <a href="https://www.google.com/search?q=https://railway.app/new/template%3Ftemplate%3Dhttps://github.com/mrxbroken011/BROKEN-X-MUSIC">
 <img src="https://www.google.com/search?q=https://img.shields.io/badge/Deploy%2520on-Railway-0b0d16%3Fstyle%3Dfor-the-badge%26logo%3Drailway" width="150" alt="Deploy on Railway"/>
 </a>
-<a href="https://www.google.com/search?q=https://app.koyeb.com/deploy%3Ftype%3Dgit%26repository%3Dgithub.com/mrxbroken011/BROKEN-X-MUSIC">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Deploy%2520on-Koyeb-black%3Fstyle%3Dfor-the-badge%26logo%3Dkoyeb" width="150" alt="Deploy on Koyeb"/>
+<a href="https://app.koyeb.com/deploy%3Ftype%3Dgit%26repository%3Dgithub.com/mrxbroken011/BROKEN-X-MUSIC">
+<img src="https://img.shields.io/badge/Deploy%2520on-Koyeb-black%3Fstyle%3Dfor-the-badge%26logo%3Dkoyeb" width="150" alt="Deploy on Koyeb"/>
 </a>
 </p>
 
