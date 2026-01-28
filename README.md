@@ -1,6 +1,8 @@
-<h2 align="center"><b>ʙʀᴏᴋᴇɴxᴍᴜsɪᴄ</b></h2>
+<h1 align="center"><b>ʙʀᴏᴋᴇɴxᴍᴜsɪᴄ</b></h1>
 <pre>SAY NO TO COOKIES 🍪 BASED BOT HERE IS OUR BOT WITH 0% HEADACHE</pre>
 
+<h2 align="center" width="100px"><b>ʜɪɢʜʟʏ ʀᴇᴄᴏᴍᴍᴇɴᴅ 𝖥ᴏʀᴋ ᴛʜɪs ʀᴇᴘᴏ ʙᴇғᴏʀᴇ ᴅᴇᴘʟᴏʏɪɴɢ...! ɢɪᴠᴇ ᴀ ⭐ ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴏʀᴇ ʟɪᴋᴇ ᴛʜɪs</b> 
+</h2>
 
 ---
 
@@ -16,6 +18,9 @@
 > © 2025 BROKEN X NETWORK | ALL RIGHTS RESERVED
 ---
 
+<summary><b>ᴇɴᴠɪʀᴏɴᴍᴇɴᴛ ᴠᴀʀɪᴀʙʟᴇs</b></summary>
+<br>
+
 ```toml
 API_ID=
 API_HASH=
@@ -28,32 +33,63 @@ YTAPIURL=https://mrbroken-brokenxbots.hf.space
 #Get free key from https://t.me/aboutbrokenx/53 
 YTKEY=
 ```
+### ☕ VPS Setup Guide
 
+<img src="https://img.shields.io/badge/Show%20/Hide-VPS%20Steps-0ea5e9?style=for-the-badge" alt="VPS Guide"/>
+<div align="left">
+  <details>
+  <summary>Click to expand setup commands</summary>
 
- 
+```bash
+# 🎵 Deploy BROKEN X MUSIC on VPS
 
+# Step 1: Update & Install Dependencies
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y git curl python3-pip python3-venv ffmpeg unzip tmux
 
-<p align="center">
- 𝗔 𝗣𝗢𝗪𝗘𝗥𝗙𝗨𝗟 𝗔𝗗𝗩𝗔𝗡𝗖𝗘 𝗠𝗨𝗦𝗜𝗖 𝗕𝗢𝗧 </p>
-   
+# Step 2: Install Node.js (v20 LTS)
+curl -fsSL [https://deb.nodesource.com/setup_20.x](https://deb.nodesource.com/setup_20.x) | sudo -E bash -
+sudo apt install -y nodejs
+source ~/.bashrc
 
-<p align="center">
-  <img src="https://enjoyedp.com/wp-content/uploads/2025/09/sweet-cute-girl-pic-hd.jpg" width="420">
-</p>
+# Step 3: Clone & Setup
+git clone [https://github.com/mrxbroken011/BROKEN-X-MUSIC](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
+cd BROKEN-X-MUSIC
 
-[<img src="https://github.com/mrxbroken011/brokenxnetwork/blob/master/resources/hr.gif"/>](https://github.com/mrxbroken011)
+# Create a background session
+tmux new -s broken
 
-</p>
+# --- Inside tmux session ---
+python3 -m venv venv
+source venv/bin/activate
+pip install -U pip && pip install -r requirements.txt
 
+# Start the bot
+bash setup
+bash start
 
-[<img src="https://github.com/mrxbroken011/brokenxnetwork/blob/master/resources/hr.gif"/>](https://github.com/mrxbroken011)
+# Detach from session (Ctrl+B, then D)
+tmux detach
+
+# Reattach to session
+tmux attach-session -t broken
+
+# Kill bot session
+tmux kill-session -t broken
+
+# Uninstall bot
+rm -rf BROKEN-X-MUSIC
+```
+</details> </div>
 
 <h3 align="center">
-    ─「 𝗗𝗘𝗣𝗟𝗢𝗬 」─
- 
-<br> 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/mrxbroken011/BROKEN-X-MUSIC"> <img src="https://img.shields.io/badge/HEROKU DEPLOY KARLO%20%20-black?style=for-the-badge&logo=MRXBROKEN" width="320" height="50"/></a></p>   
-</h3> </br>
+</h3>
+<details>
+<summary><b>ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ</b></summary>
+<br>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/mrxbroken011/BROKEN-X-MUSIC"> <img src="https://img.shields.io/badge/HEROKU DEPLOY%20%20-black?style=for-the-badge&logo=MRXBROKEN" width="320" height="50"/></a></p>   
+</details>
+
 ━
 
 <h3 align="center">
