@@ -1,6 +1,12 @@
 <h1 align="center">Broken ✘ Music</h1>
 
 <p align="center">
+    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers"><img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Stars" width="80" alt="Stars"/></a>
+    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/fork"><img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Forks" width="80" alt="Forks"/></a>
+    <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9+-black?logo=python" width="80" alt="Python"/></a>
+    <a href="https://telegram.dog/BROKENXNETWORK1"><img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" width="80" alt="Telegram"/></a>
+</p>
+<p align="center">
 A high-performance, cookie-free Telegram Music Bot engineered for stability, scalability, and clean audio streaming.
 </p>
 
@@ -75,7 +81,7 @@ YTAPIURL=https://mrbroken-brokenxbots.hf.space
 YTKEY=your_custom_api_key
 ```
 
-> Note: The custom YouTube API key is mandatory for cookie-free playback.
+> Note: GET Your YTKEY For Free From [HERE](https://t.me/aboutbrokenx) Join For More Updates
 
 ---
 
@@ -90,7 +96,7 @@ This project is designed to run continuously and should be supervised using:
 - `tmux`
 - `systemd`
 - Docker restart policies
-## For More Information Read [DEPLOYMENT](https://github.com/mrxbroken011/BROKEN-X-MUSIC/blob/Master/deployment.md) 
+- For More Information Read [DEPLOYMENT](https://github.com/mrxbroken011/BROKEN-X-MUSIC/blob/Master/deployment.md) 
 ---
 
 ### Maintenance Guidelines
