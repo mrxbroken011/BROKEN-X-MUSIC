@@ -73,15 +73,20 @@ confirmer = {}
 
 
 START_IMG_URL = [
-     "https://enjoyedp.com/wp-content/uploads/2025/09/cute-baby-girl-photo-hd.jpg", 
-     "https://enjoyedp.com/wp-content/uploads/2025/09/cute-girl-pic-simple-hd.jpg", 
-     "https://enjoyedp.com/wp-content/uploads/2025/09/hd-dp-cute-girl-profile.jpg", 
-     "https://enjoyedp.com/wp-content/uploads/2025/09/cute-girl-photo-gallery.jpg", 
-     "https://enjoyedp.com/wp-content/uploads/2025/09/cute-girl-dp-stylish-hd_1.jpg", 
+     "https://files.catbox.moe/dkmm7b.jpeg", 
+     "https://files.catbox.moe/ja6mf5.jpeg", 
+     "https://files.catbox.moe/2tmu0j.jpeg", 
+     "https://files.catbox.moe/e5mxx2.jpeg", 
+     "https://files.catbox.moe/7c6qzc.jpeg", 
+     "https://files.catbox.moe/4x1m0u.jpeg", 
+     "https://files.catbox.moe/7juopm.jpeg", 
+     "https://files.catbox.moe/0crhh2.jpeg", 
+     "https://files.catbox.moe/b1da6m.jpg", 
+     "https://files.catbox.moe/hsv9el.jpg", 
 ]
 
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://enjoyedp.com/wp-content/uploads/2025/09/cute-baby-girl-photo-hd.jpg"
+    "PING_IMG_URL", "https://files.catbox.moe/dkmm7b.jpeg"
 )
 PLAYLIST_IMG_URL = "https://te.legra.ph/file/4ec5ae4381dffb039b4ef.jpg"
 STATS_IMG_URL = "https://telegra.ph/file/0ffb4a004185a3991ce18.jpg"
