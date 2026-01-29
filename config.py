@@ -6,7 +6,7 @@ from pyrogram import filters
 
 load_dotenv()
 
-# Get this value from my.telegram.org/apps
+
 API_ID = int(getenv("API_ID", 35852042)) 
 API_HASH = getenv("API_HASH", None)
 
@@ -21,7 +21,7 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 19000))
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID", -1002094142057))
 
-# Get this value from @FallenxBot on Telegram by /id
+
 OWNER_ID = int(getenv("OWNER_ID", 1841914911))
 
 ## Fill these variables if you're deploying on heroku.
