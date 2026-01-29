@@ -6,7 +6,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 from BROKENXMUSIC import LOGGER, app, userbot
-from BROKENXMUSIC.core.call import Anony
+from BROKENXMUSIC.core.call import Broken
 from BROKENXMUSIC.misc import sudo
 from BROKENXMUSIC.plugins import ALL_MODULES
 from BROKENXMUSIC.utils.database import get_banned_users, get_gbanned
