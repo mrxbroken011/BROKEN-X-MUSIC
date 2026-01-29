@@ -85,7 +85,7 @@ YTKEY=your_custom_api_key
 
 ---
 
-### Deployment Notes 
+### Deployment Notes [DEPLOYMENT.md](DEPLOYMENT.md)
 
 - Fork the repository before deploying.
 - Use VPS or Docker for best long-term stability.
