@@ -26,7 +26,7 @@ You must have the following ready:
 - Telegram Bot Token
 - Telegram User String Session
 - MongoDB URI
-- Custom YouTube API Key (cookie-free playback)
+- Custom YouTube API Key [Get From Here](https://t.me/aboutbrokenx) 
 - ffmpeg available in runtime
 
 All values must be set using **environment variables only**.
@@ -45,7 +45,7 @@ MONGO_DB_URI=
 STRING_SESSION=
 
 YTAPIURL=https://mrbroken-brokenxbots.hf.space
-YTKEY=
+YTKEY=[GET](https://t.me/aboutbrokenx) 
 ```
 
 ⚠️ Never expose these values publicly.
@@ -141,67 +141,55 @@ Docker is ideal if you want:
 
 ### Docker Compose (Preferred)
 
+Start with:
 ```
-version: '3.8'
-services:
-  broken-music:
-      build: .
-          container_name: broken-music
-              env_file:
-                    - .env
-                        restart: always
-                        ```
+docker-compose up -d
+```
 
-                        Start with:
-                        ```
-                        docker-compose up -d
-                        ```
+### Warnings
+- Do not bake secrets into the image
+- Use `.env` only
+- Monitor logs with `docker logs`
 
-                        ### Warnings
-                        - Do not bake secrets into the image
-                        - Use `.env` only
-                        - Monitor logs with `docker logs`
+---
 
-                        ---
+## Platform Comparison
 
-                        ## Platform Comparison
+| Platform | Stability | Recommended |
+|--------|----------|-------------|
+| VPS | ⭐⭐⭐⭐⭐ | Yes (Production) |
+| Docker VPS | ⭐⭐⭐⭐⭐ | Yes |
+| Heroku | ⭐⭐ | Testing only |
+| Render | ⭐⭐⭐ | Light usage |
+| Railway | ⭐⭐⭐ | Medium usage |
+| Koyeb | ⭐⭐⭐ | Medium usage |
 
-                        | Platform | Stability | Recommended |
-                        |--------|----------|-------------|
-                        | VPS | ⭐⭐⭐⭐⭐ | Yes (Production) |
-                        | Docker VPS | ⭐⭐⭐⭐⭐ | Yes |
-                        | Heroku | ⭐⭐ | Testing only |
-                        | Render | ⭐⭐⭐ | Light usage |
-                        | Railway | ⭐⭐⭐ | Medium usage |
-                        | Koyeb | ⭐⭐⭐ | Medium usage |
+---
 
-                        ---
+## Common Deployment Mistakes
 
-                        ## Common Deployment Mistakes
+- Missing ffmpeg
+- Exposed `.env`
+- Wrong API key
+- Using cookies on cloud
+- Running without background process
 
-                        - Missing ffmpeg
-                        - Exposed `.env`
-                        - Wrong API key
-                        - Using cookies on cloud
-                        - Running without background process
+Avoiding these will save significant debugging time.
 
-                        Avoiding these will save significant debugging time.
+---
 
-                        ---
+## Final Responsibility Notice
 
-                        ## Final Responsibility Notice
+This project is provided as a technical tool.
 
-                        This project is provided as a technical tool.
+You are solely responsible for:
+- Deployment
+- Usage
+- Policy compliance
+- Resource management
 
-                        You are solely responsible for:
-                        - Deployment
-                        - Usage
-                        - Policy compliance
-                        - Resource management
+Deploy responsibly.
 
-                        Deploy responsibly.
+---
 
-                        ---
-
-                        © 2025 Broken ✘ Network
-                        
+© 2025 Broken ✘ Network
