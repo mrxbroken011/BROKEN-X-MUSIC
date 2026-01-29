@@ -7,8 +7,7 @@ from BROKENXMUSIC import app
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
-    me = app.get_me() 
-    bot = me.username
+   
 
     buttons = [
         [
@@ -21,15 +20,14 @@ def track_markup(_, videoid, user_id, channel, fplay):
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{bot}?startgroup=true")],
+        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true")],
             
     ]
     return buttons
 
 
 def stream_markup_timer(_, chat_id, played, dur):
-    me = app.get_me() 
-    bot = me.username
+    
     
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
@@ -79,7 +77,7 @@ def stream_markup_timer(_, chat_id, played, dur):
 
             ),
        ],
-       [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{bot}?startgroup=true",
+       [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true",
            ), 
         ],
     ]
@@ -87,8 +85,7 @@ def stream_markup_timer(_, chat_id, played, dur):
 
 
 def stream_markup(_, chat_id):
-    me = app.get_me() 
-    bot = me.username
+    
     
     buttons = [
         [
@@ -114,7 +111,7 @@ def stream_markup(_, chat_id):
 
             ),
         ], 
-        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{bot}?startgroup=true"
+        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true"
             ), 
         ], 
     ]
@@ -122,8 +119,7 @@ def stream_markup(_, chat_id):
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
-    me = app.get_me() 
-    bot = me.username
+    
     
     buttons = [
         [
@@ -136,15 +132,14 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
                 callback_data=f"AnonyPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{bot}?startgroup=true",)],
+        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true",)],
 
     ]
     return buttons
 
 
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
-    me = app.get_me() 
-    bot = me.username
+    
     buttons = [
         [
             InlineKeyboardButton(
@@ -152,7 +147,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{bot}?startgroup=true",)],
+        [InlineKeyboardButton(text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true",)],
 
     ]
     return buttons
