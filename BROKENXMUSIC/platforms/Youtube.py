@@ -7,7 +7,7 @@ import requests
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-from youtubesearchpython.__future__ import VideosSearch
+from py_yt import VideosSearch
 from ..utils.database import is_on_off
 from ..utils.formatters import time_to_seconds
 from BROKENXMUSIC import app
@@ -134,7 +134,281 @@ async def download_song(link: str) -> str:
 
 async def download_video(link: str) -> str:
     video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
-    logger = LOGGER("BrokenAPI/Youtube.py")
+    logger = LOGGER("BROKEN X YT API")
+    logger.info(f"🎥 [VIDEO] Starting download for: {video_id}")
+
+    if not video_id or len(video_id) < 3:
+        logger.error(f"❌ [VIDEO] Invalid video ID: {video_id}")
+        return None
+
+    DOWNLOAD_DIR = "downloads"
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.mkv")
+
+    if os.path.exists(file_path):
+        logger.info(f"🎥 [LOCAL] File exists: {video_id}")
+        return file_path
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            url = f"{API_BASE_URL}/download/video"
+            params = {
+                "video_id": video_id,
+                "api_key": API_KEY
+            }
+            
+            logger.info(f"🔄 [VIDEO] Requesting from API: {video_id}")
+            
+            async with session.get(
+                url,
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=60)
+            ) as response:
+                
+                if response.status != 200:
+                    logger.error(f"❌ [VIDEO] API error: {response.status}")
+                    return None
+                
+                data = await response.json()
+                logger.info(f"📦 [VIDEO] API Response: {data}")
+                
+                if data.get("telegram_url"):
+                    telegram_url = data["telegram_url"]
+                    status = data.get("status", "unknown")
+                    
+                    logger.info(f"🔗 [VIDEO] Status: {status} | Telegram URL: {telegram_url}")
+                    
+                    downloaded_file = await get_telegram_file(telegram_url, video_id, "video")
+                    
+                    if downloaded_file:
+                        logger.info(f"🎉 [VIDEO] Successfully downloaded: {video_id}")
+                        return downloaded_file
+                    else:
+                        logger.error(f"⚠️ [VIDEO] Telegram download failed for: {video_id}")
+                        return None
+                else:
+                    logger.error(f"❌ [VIDEO] No telegram_url in response: {data}")
+                    return None
+
+    except asyncio.TimeoutError:
+        logger.error(f"⏱️ [VIDEO] Timeout: {video_id}")
+        return None
+    except Exception as e:
+        logger.error(f"❌ [VIDEO] Exception for {video_id}: {e}")
+        return None
+
+
+async def check_file_size(link):
+    async def get_format_info(link):
+        proc = await asyncio.create_subprocess_exec(
+            "yt-dlp",
+            "-J",
+            link,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
+        )
+        stdout, stderr = await proc.communicate()
+        if proc.returncode != 0:
+            print(f'Error:\n{stderr.decode()}')
+            return None
+        return json.loads(stdout.decode())
+
+    def parse_size(formats):
+        total_size = 0
+        for format in formats:
+            if 'filesize' in format:
+                total_size += format['filesize']
+        return total_size
+
+    info = await get_format_info(link)
+    if info is None:
+        return None
+    
+    formats = info.get('formats', [])
+    if not formats:
+        print("No formats found.")
+        return None
+    
+    total_size = parse_size(formats)
+    return total_size
+
+
+async def shell_cmd(cmd):
+    proc = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    out, errorz = await proc.communicate()
+    if errorz:
+        if "unavailable videos are hidden" in (errorz.decode("utf-8")).lower():
+            return out.decode("utf-8")
+        else:
+            return errorz.decode("utf-8")
+    return out.decode("utf-8")
+
+
+class YouTubeAPI:
+    def __init__(self):
+        self.base = "https://www.youtube.com/watch?v="
+        self.regex = r"(?:youtube\.com|youtu\.be)"
+        self.status = "https://www.youtube.com/oembed?url="
+async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) -> str:
+    logger = LOGGER("BROKEN X YT API")
+    try:
+        extension = ".webm" if file_type == "audio" else ".mkv"
+        file_path = os.path.join("downloads", f"{video_id}{extension}")
+        
+        if os.path.exists(file_path):
+            logger.info(f"📂 [LOCAL] File exists: {video_id}")
+            return file_path
+        
+        parsed = urlparse(telegram_url)
+        parts = parsed.path.strip("/").split("/")
+        
+        if len(parts) < 2:
+            logger.error(f"❌ Invalid Telegram link format: {telegram_url}")
+            return None
+            
+        channel_name = parts[0]
+        message_id = int(parts[1])
+        
+        logger.info(f"📥 [TELEGRAM] Downloading from @{channel_name}/{message_id}")
+        
+        shuffled_assistants = assistants.copy()
+        random.shuffle(shuffled_assistants)
+        
+        for idx, assistant_num in enumerate(shuffled_assistants):
+            try:
+                temp_chat_id = -1000000000000 - assistant_num
+                assistant_client = await get_assistant(temp_chat_id)
+                
+                if not assistant_client:
+                    continue
+                
+                msg = await assistant_client.get_messages(channel_name, message_id)
+                
+                os.makedirs("downloads", exist_ok=True)
+                await msg.download(file_name=file_path)
+                
+                timeout = 0
+                while not os.path.exists(file_path) and timeout < 60:
+                    await asyncio.sleep(0.5)
+                    timeout += 0.5
+                
+                if os.path.exists(file_path):
+                    logger.info(f"✅ [TELEGRAM] Downloaded: {video_id}")
+                    return file_path
+                
+            except Exception as e:
+                error_msg = str(e)
+                
+                if "FLOOD_WAIT" in error_msg.upper() or "420" in error_msg:
+                    if idx < len(shuffled_assistants) - 1:
+                        continue
+                    else:
+                        break
+                else:
+                    if idx < len(shuffled_assistants) - 1:
+                        continue
+                    else:
+                        break
+        
+        try:
+            msg = await app.get_messages(channel_name, message_id)
+            
+            os.makedirs("downloads", exist_ok=True)
+            await msg.download(file_name=file_path)
+            
+            timeout = 0
+            while not os.path.exists(file_path) and timeout < 60:
+                await asyncio.sleep(0.5)
+                timeout += 0.5
+            
+            if os.path.exists(file_path):
+                logger.info(f"✅ [TELEGRAM] Downloaded: {video_id}")
+                return file_path
+            else:
+                logger.error(f"❌ [TELEGRAM] Timeout: {video_id}")
+                return None
+        except Exception as e:
+            logger.error(f"❌ [TELEGRAM] Failed to download {video_id}: {e}")
+            return None
+        
+    except Exception as e:
+        logger.error(f"❌ [TELEGRAM] Failed to download {video_id}: {e}")
+        return None
+
+
+async def download_song(link: str) -> str:
+    video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
+    logger = LOGGER("BROKEN X YT API")
+    logger.info(f"🎵 [AUDIO] Starting download for: {video_id}")
+
+    if not video_id or len(video_id) < 3:
+        logger.error(f"❌ [AUDIO] Invalid video ID: {video_id}")
+        return None
+
+    DOWNLOAD_DIR = "downloads"
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.webm")
+
+    if os.path.exists(file_path):
+        logger.info(f"🎵 [LOCAL] File exists: {video_id}")
+        return file_path
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            url = f"{API_BASE_URL}/download/audio"
+            params = {
+                "video_id": video_id,
+                "api_key": API_KEY
+            }
+            
+            logger.info(f"🔄 [AUDIO] Requesting from API: {video_id}")
+            
+            async with session.get(
+                url,
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=60)
+            ) as response:
+                
+                if response.status != 200:
+                    logger.error(f"❌ [AUDIO] API error: {response.status}")
+                    return None
+                
+                data = await response.json()
+                logger.info(f"📦 [AUDIO] API Response: {data}")
+                
+                if data.get("telegram_url"):
+                    telegram_url = data["telegram_url"]
+                    status = data.get("status", "unknown")
+                    
+                    logger.info(f"🔗 [AUDIO] Status: {status} | Telegram URL: {telegram_url}")
+                    
+                    downloaded_file = await get_telegram_file(telegram_url, video_id, "audio")
+                    
+                    if downloaded_file:
+                        logger.info(f"🎉 [AUDIO] Successfully downloaded: {video_id}")
+                        return downloaded_file
+                    else:
+                        logger.error(f"⚠️ [AUDIO] Telegram download failed for: {video_id}")
+                        return None
+                else:
+                    logger.error(f"❌ [AUDIO] No telegram_url in response: {data}")
+                    return None
+
+    except asyncio.TimeoutError:
+        logger.error(f"⏱️ [AUDIO] Timeout: {video_id}")
+        return None
+    except Exception as e:
+        logger.error(f"❌ [AUDIO] Exception for {video_id}: {e}")
+        return None
+
+
+async def download_video(link: str) -> str:
+    video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
+    logger = LOGGER("StrangerAPI/Youtube.py")
     logger.info(f"🎥 [VIDEO] Starting download for: {video_id}")
 
     if not video_id or len(video_id) < 3:
@@ -296,7 +570,7 @@ class YouTubeAPI:
             link = self.base + link
         if "&" in link:
             link = link.split("&")[0]
-        results = VideosSearch(link, limit=1)
+        results = VideosSearch(link, limit=10)
         for result in (await results.next())["result"]:
             return result["title"]
 
@@ -436,7 +710,7 @@ class YouTubeAPI:
                     return None, False
                     
         except Exception as e:
-            logger = LOGGER("BrokenAPI/Youtube.py")
+            logger = LOGGER("BROKEN X YT API")
             logger.error(f"❌ Download failed: {e}")
             return None, False
 
