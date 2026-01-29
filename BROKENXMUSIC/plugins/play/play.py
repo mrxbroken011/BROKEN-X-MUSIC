@@ -7,7 +7,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 from BROKENXMUSIC import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from BROKENXMUSIC.core.call import Anony
+from BROKENXMUSIC.core.call import Broken
 from BROKENXMUSIC.utils import seconds_to_min, time_to_seconds
 from BROKENXMUSIC.utils.channelplay import get_channeplayCB
 from BROKENXMUSIC.utils.decorators.language import languageCB
@@ -288,7 +288,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await Anony.stream_call(url)
+                await Broken.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(_["black_9"])
                 return await app.send_message(
@@ -661,4 +661,5 @@ async def slider_queries(client, CallbackQuery, _):
         return await CallbackQuery.edit_message_media(
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
         )
+
 
