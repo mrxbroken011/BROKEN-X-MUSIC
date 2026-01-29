@@ -8,21 +8,21 @@ import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from py_yt import VideosSearch
-from ..utils.database import is_on_off, get_assistant
+from ..utils.database import is_on_off
 from ..utils.formatters import time_to_seconds
-from BROKENXMUSIC import app
-from BROKENXMUSIC.core.userbot import assistants
+from ANNIEMUSIC import app
 import random
 import logging
 import aiohttp
-from BROKENXMUSIC import LOGGER
+from ANNIEMUSIC import LOGGER
 from urllib.parse import urlparse
 
+
 API_BASE_URL = "https://mrbroken-brokenxbots.hf.space"
-API_KEY = os.getenv("YTKEY", "")
+API_KEY = os.getenv("YTKEY") #Get From https://t.me/ABOUTBROKENX
 
 async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) -> str:
-    logger = LOGGER("BROKEN X YT API")
+    logger = LOGGER("BrokenXAPI")
     try:
         extension = ".webm" if file_type == "audio" else ".mkv"
         file_path = os.path.join("downloads", f"{video_id}{extension}")
@@ -43,64 +43,21 @@ async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) ->
         
         logger.info(f"📥 [TELEGRAM] Downloading from @{channel_name}/{message_id}")
         
-        shuffled_assistants = assistants.copy()
-        random.shuffle(shuffled_assistants)
+        msg = await app.get_messages(channel_name, message_id)
         
-        for idx, assistant_num in enumerate(shuffled_assistants):
-            try:
-                temp_chat_id = -1000000000000 - assistant_num
-                assistant_client = await get_assistant(temp_chat_id)
-                
-                if not assistant_client:
-                    continue
-                
-                msg = await assistant_client.get_messages(channel_name, message_id)
-                
-                os.makedirs("downloads", exist_ok=True)
-                await msg.download(file_name=file_path)
-                
-                timeout = 0
-                while not os.path.exists(file_path) and timeout < 60:
-                    await asyncio.sleep(0.5)
-                    timeout += 0.5
-                
-                if os.path.exists(file_path):
-                    logger.info(f"✅ [TELEGRAM] Downloaded: {video_id}")
-                    return file_path
-                
-            except Exception as e:
-                error_msg = str(e)
-                
-                if "FLOOD_WAIT" in error_msg.upper() or "420" in error_msg:
-                    if idx < len(shuffled_assistants) - 1:
-                        continue
-                    else:
-                        break
-                else:
-                    if idx < len(shuffled_assistants) - 1:
-                        continue
-                    else:
-                        break
+        os.makedirs("downloads", exist_ok=True)
+        await msg.download(file_name=file_path)
         
-        try:
-            msg = await app.get_messages(channel_name, message_id)
-            
-            os.makedirs("downloads", exist_ok=True)
-            await msg.download(file_name=file_path)
-            
-            timeout = 0
-            while not os.path.exists(file_path) and timeout < 60:
-                await asyncio.sleep(0.5)
-                timeout += 0.5
-            
-            if os.path.exists(file_path):
-                logger.info(f"✅ [TELEGRAM] Downloaded: {video_id}")
-                return file_path
-            else:
-                logger.error(f"❌ [TELEGRAM] Timeout: {video_id}")
-                return None
-        except Exception as e:
-            logger.error(f"❌ [TELEGRAM] Failed to download {video_id}: {e}")
+        timeout = 0
+        while not os.path.exists(file_path) and timeout < 60:
+            await asyncio.sleep(0.5)
+            timeout += 0.5
+        
+        if os.path.exists(file_path):
+            logger.info(f"✅ [TELEGRAM] Downloaded: {video_id}")
+            return file_path
+        else:
+            logger.error(f"❌ [TELEGRAM] Timeout: {video_id}")
             return None
         
     except Exception as e:
@@ -110,7 +67,7 @@ async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) ->
 
 async def download_song(link: str) -> str:
     video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
-    logger = LOGGER("BROKEN X YT API")
+    logger = LOGGER("BrokenXAPI")
     logger.info(f"🎵 [AUDIO] Starting download for: {video_id}")
 
     if not video_id or len(video_id) < 3:
@@ -176,7 +133,7 @@ async def download_song(link: str) -> str:
 
 async def download_video(link: str) -> str:
     video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
-    logger = LOGGER("BROKEN X YT API")
+    logger = LOGGER("BrokenXAPI")
     logger.info(f"🎥 [VIDEO] Starting download for: {video_id}")
 
     if not video_id or len(video_id) < 3:
@@ -478,7 +435,16 @@ class YouTubeAPI:
                     return None, False
                     
         except Exception as e:
-            logger = LOGGER("BROKEN X YT API")
-            logger.error(f"❌ Reach @mrbrokn As Soon As Possible Download failed: {e}")
+            logger = LOGGER("BrokenXAPI")
+            logger.error(f"❌ Download failed: {e}")
             return None, False
+
+
+
+
+
+
+
+
+
 
