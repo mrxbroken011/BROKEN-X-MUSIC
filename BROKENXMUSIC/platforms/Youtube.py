@@ -19,7 +19,7 @@ from BROKENXMUSIC import LOGGER
 from urllib.parse import urlparse
 
 API_BASE_URL = "https://mrbroken-brokenxbots.hf.space"
-API_KEY = os.getenv("YTKEY", None)
+API_KEY = os.getenv("YTKEY", "")
 
 async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) -> str:
     logger = LOGGER("BROKEN X YT API")
@@ -481,3 +481,4 @@ class YouTubeAPI:
             logger = LOGGER("BROKEN X YT API")
             logger.error(f"❌ Reach @mrbrokn As Soon As Possible Download failed: {e}")
             return None, False
+
