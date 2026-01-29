@@ -79,7 +79,7 @@ YTKEY=your_custom_api_key
 
 ---
 
-### Deployment Notes
+### Deployment Notes 
 
 - Fork the repository before deploying.
 - Use VPS or Docker for best long-term stability.
@@ -90,7 +90,7 @@ This project is designed to run continuously and should be supervised using:
 - `tmux`
 - `systemd`
 - Docker restart policies
-
+## For More Information Read [DEPLOYMENT](https://github.com/mrxbroken011/BROKEN-X-MUSIC/blob/Master/deployment.md) 
 ---
 
 ### Maintenance Guidelines
