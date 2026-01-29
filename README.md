@@ -1,147 +1,143 @@
-<h1 align="center"><b>ʙʀᴏᴋᴇɴ ✘ ᴍᴜsɪᴄ</b></h1>
+<h1 align="center">Broken ✘ Music</h1>
 
 <p align="center">
-  <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers">
-    <img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Stars" alt="Stars"/>
-  </a>
-  <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/fork">
-    <img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Forks" alt="Forks"/>
-  </a>
-  <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/Python-3.9+-black?logo=python" alt="Python"/>
-  </a>
-  <a href="https://telegram.me/BROKENXNETWORK1">
-    <img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" alt="Telegram"/>
-  </a>
+A high-performance, cookie-free Telegram Music Bot engineered for stability, scalability, and clean audio streaming.
 </p>
 
 <p align="center">
-  <b>SAY NO TO COOKIES 🍪 | 0% HEADACHE | HIGH PERFORMANCE</b><br>
-  A powerful, cookie-free Telegram Music Bot designed for stability, speed, and high-quality audio streaming.
-</p>
-
-<p align="center">
-  <b>⚠️ REPO FORKING IS HIGHLY RECOMMENDED BEFORE DEPLOYING</b>
+<b>Zero Browser Cookies • Optimized Streaming • Production-Ready Architecture</b>
 </p>
 
 ---
 
-> [!CAUTION]
-> **IMPORTANT NOTICE: API REQUIREMENT**
->
-> 🎥 **CUSTOM YOUTUBE API IS LIVE**
->
-> To ensure cookie-free playback, this bot requires a custom API Key.
->
-> 🔑 **Get your Free API KEY here:** https://t.me/Aboutbrokenx/53
->
-> *Failure to add this key may result in playback errors.*
+### Overview
+
+**Broken ✘ Music** is a professionally engineered Telegram music bot designed to operate **without browser cookies**, reducing account risk, avoiding session leaks, and ensuring consistent playback across cloud environments.
+
+The project is built with long-term maintainability in mind and follows modern deployment practices suitable for VPS, Docker, and managed cloud platforms.
+
+This repository is intended for **developers, DevOps users, and Telegram bot operators** who value reliability and security.
 
 ---
 
-## 🛠 Config Vars
+### Before You Begin (Important)
 
-<details>
-<summary>Click to view required Environment Variables</summary>
-<br>
+- This repository **must be forked** before deployment.
+- If you find this project useful, you may optionally ⭐ star the repository to support ongoing development.
+- You are responsible for complying with **Telegram ToS**, **YouTube policies**, and **local laws**.
 
-```bash
-API_ID=123456
-API_HASH=abcdef123456
-BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
-LOGGER_ID=-1001234567890
-MONGO_DB_URI=mongodb+srv://user:pass@cluster0.mongodb.net/?retryWrites=true&w=majority
-OWNER_ID=123456789
-STRING_SESSION=AgAd...
+---
+
+### Core Features
+
+- Cookie-free playback (no browser session dependency)
+- Custom YouTube API support
+- Stable voice chat streaming
+- Cloud-friendly (Heroku / Render / Railway / VPS / Docker)
+- Clean separation of configuration and code
+- Designed to prevent accidental credential exposure
+
+---
+
+### Security & Exposure Warnings
+
+⚠️ **Read carefully before deployment**
+
+- **Never commit `.env` files** or API keys to GitHub.
+- Do **not** expose your MongoDB URI, Telegram Bot Token, or Session String publicly.
+- Do **not** share private API endpoints or keys in public groups.
+- Rotate credentials immediately if you suspect exposure.
+- Use environment variables only — avoid hardcoding secrets.
+- Public forks are visible; review your fork settings carefully.
+
+Failure to follow these practices can lead to:
+- Bot hijacking
+- Database compromise
+- API abuse
+- Permanent Telegram account limitations
+
+---
+
+### Configuration (Environment Variables)
+
+Set the following variables in your `.env` file or cloud dashboard:
+
+```
+API_ID=your_api_id
+API_HASH=your_api_hash
+BOT_TOKEN=your_bot_token
+OWNER_ID=your_telegram_id
+LOGGER_ID=your_log_group_id
+MONGO_DB_URI=your_mongodb_uri
+STRING_SESSION=your_session_string
+
 YTAPIURL=https://mrbroken-brokenxbots.hf.space
-YTKEY=Get_From_Link_Above
-````
-
-</details>
-
----
-
-## 🚀 One-Click Deployment
-
-<p align="center">
-  <a href="https://dashboard.heroku.com/new?template=https://github.com/mrxbroken011/BROKEN-X-MUSIC">
-    <img src="https://img.shields.io/badge/Deploy-Heroku-purple?style=for-the-badge&logo=heroku" width="180"/>
-  </a>
-  <a href="https://render.com/deploy?repo=https://github.com/mrxbroken011/BROKEN-X-MUSIC">
-    <img src="https://img.shields.io/badge/Deploy-Render-white?style=for-the-badge&logo=render&logoColor=black" width="180"/>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://railway.app/new/template?template=https://github.com/mrxbroken011/BROKEN-X-MUSIC">
-    <img src="https://img.shields.io/badge/Deploy-Railway-0b0d16?style=for-the-badge&logo=railway" width="180"/>
-  </a>
-  <a href="https://app.koyeb.com/deploy?type=git&repository=github.com/mrxbroken011/BROKEN-X-MUSIC">
-    <img src="https://img.shields.io/badge/Deploy-Koyeb-black?style=for-the-badge&logo=koyeb" width="180"/>
-  </a>
-</p>
-
----
-
-## 💻 Manual Deployment (VPS)
-
-<details>
-<summary><b>Click to expand VPS Installation Guide</b></summary>
-
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y git curl python3-pip python3-venv ffmpeg unzip tmux
-
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs
-
-git clone https://github.com/mrxbroken011/BROKEN-X-MUSIC
-cd BROKEN-X-MUSIC
-
-tmux new -s broken
-
-python3 -m venv venv
-source venv/bin/activate
-pip install -U pip && pip install -r requirements.txt
-
-bash setup
-bash start
+YTKEY=your_custom_api_key
 ```
 
-</details>
+> Note: The custom YouTube API key is mandatory for cookie-free playback.
 
 ---
 
-## 🐳 Docker Deployment
+### Deployment Notes
 
-<details>
-<summary><b>Click to expand Docker Instructions</b></summary>
+- Fork the repository before deploying.
+- Use VPS or Docker for best long-term stability.
+- Heroku / Render / Railway are supported but may have platform limitations.
+- Ensure `ffmpeg` is installed in all environments.
 
-
-```bash
-docker-compose up -d
-```
-
-</details>
+This project is designed to run continuously and should be supervised using:
+- `tmux`
+- `systemd`
+- Docker restart policies
 
 ---
 
-## 📞 Support & Updates
+### Maintenance Guidelines
+
+- Keep dependencies updated.
+- Monitor logs regularly.
+- Avoid unnecessary plugins or unofficial patches.
+- Test changes locally before pushing to production.
+- Backup your database periodically.
+
+---
+
+### Donations & Support
+
+If this project saves you time or helps your workflow, donations are appreciated but never required.
+
+**Crypto Donation Addresses:**
+
+- **USDT (ERC-20):**  
+  `0x77fA3b4Fe38BB044bB6B6be188afEefa20102Cd5`
+
+- **Ethereum (ETH):**  
+  `0x77fA3b4Fe38BB044bB6B6be188afEefa20102Cd5`
+
+- **Bitcoin (Taproot):**  
+  `bc1p0efsee8tnfpfyh3yn37dsa0l3kqz8kxpvkcg2pw8cpudv2gqdu7se2763d`
+
+- **Bitcoin (SegWit):**  
+  `bc1qg5cu2nw6xurn0yrnkkggdh3n33nwmau9l0enrx`
+
+- **USDT (TRON):**  
+  `TLubBHjRNvgudX8Y4PwMrR5sKm1ohV9cxB`
+
+- **TON:**  
+  `UQAMQuNzshrJc2k1yC58St3J8wGnhiDMNrLxyc55Nu8bFfyi`
+
+---
+
+### Disclaimer
+
+This project is provided **as-is**, without warranty of any kind.  
+The author is not responsible for misuse, policy violations, or damages resulting from deployment or modification.
+
+By using this software, you agree that **you are solely responsible** for how it is operated.
+
+---
 
 <p align="center">
-  <a href="https://telegram.me/BROKENXNETWORK1">
-    <img src="https://img.shields.io/badge/Join-Update_Channel-blue?style=for-the-badge&logo=telegram"/>
-  </a>
-  <a href="https://telegram.me/ABOUTBROKENX">
-    <img src="https://img.shields.io/badge/Join-Support_Group-blue?style=for-the-badge&logo=telegram"/>
-  </a>
+© 2025 Broken ✘ Network — All Rights Reserved
 </p>
-
-<p align="center">
-© 2025 BROKEN X NETWORK | ALL RIGHTS RESERVED
-</p>
-
-
----
-
-
