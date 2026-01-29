@@ -1,10 +1,10 @@
 import requests
 import random
-from AnonXMusic import app, userbot
-from AnonXMusic.misc import SUDOERS
+from BROKENXMUSIC import app, userbot
+from BROKENXMUSIC.misc import SUDOERS
 from pyrogram import * 
 from pyrogram.types import *
-from AnonXMusic.utils.broken_ban import admin_filter
+from BROKENXMUSIC.utils.broken_ban import admin_filter
 
 
 
