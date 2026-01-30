@@ -1,15 +1,20 @@
 <h1 align="center">𝗕𝗥𝗢𝗞𝗘𝗡 ✘ 𝗠𝘂𝘀𝗶𝗰</h1>
 
-<div align="center">
+<p align="center">
     
-[![BROKEN-X-MUSIC](https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&show_icons=true&theme=radical&hide_title=true&border_radius=15&border_color=0A0A0A)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
-</div>
+<a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&show_icons=true&theme=radical&hide_title=true&border_radius=15&border_color=0A0A0A"></a>  
+</p>
 
 <p align="center">
-    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers"><img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Stars" width="80" alt="Stars"/></a>
-    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/fork"><img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Forks" width="80" alt="Forks"/></a>
-    <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9+-black?logo=python" width="80" alt="Python"/></a>
-    <a href="https://telegram.dog/BROKENXNETWORK1"><img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" width="80" alt="Telegram"/></a>
+    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers">
+        <img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Stars" width="80" alt="Stars"/></a>
+    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/fork">
+        <img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Forks" width="80" alt="Forks"/></a>
+    <a href="https://www.python.org/">
+        <img src="https://img.shields.io/badge/Python-3.9+-black?logo=python" width="80" alt="Python"/></a>
+    <a href="https://telegram.dog/BROKENXNETWORK1">
+        <img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" width="80" alt="Telegram"/></a>
 </p>
 
 <h2 align="center"> 𝗦𝗔𝗬 𝗡𝗢 𝗧𝗢 𝗧𝗛𝗜𝗦 𝗘𝗥𝗥𝗢𝗥... 👇🏻</h2>
