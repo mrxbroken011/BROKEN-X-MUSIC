@@ -7,9 +7,12 @@
     <a href="https://telegram.dog/BROKENXNETWORK1"><img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" width="80" alt="Telegram"/></a>
 </p>
 
-<p align="center" width="100"> 𝗦𝗔𝗬 𝗡𝗢 𝗧𝗢 𝗧𝗛𝗜𝗦 𝗘𝗥𝗥𝗢𝗥... 👇🏻</p>
+<h2 align="center"> 𝗦𝗔𝗬 𝗡𝗢 𝗧𝗢 𝗧𝗛𝗜𝗦 𝗘𝗥𝗥𝗢𝗥... 👇🏻</h2>
 <pre>
-ERROR:[youtube] 5rOiW_xY-kc:Sign in to confirm you’re not a bot. This helps protect our community. Learn more
+```console
+ERROR:[youtube] 
+    5rOiW_xY-kc:Sign in to confirm you’re not a bot. This helps protect our community. Learn more
+```
 </pre>
 
 <p align="center">
