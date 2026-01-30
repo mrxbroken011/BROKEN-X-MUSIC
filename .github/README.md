@@ -3,7 +3,7 @@
 <div align="center">
 
   <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC">
-    <img 
+    <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&theme=tokyonight&hide_border=true"
       alt="BROKEN-X-MUSIC"
     />
@@ -11,10 +11,10 @@
 
   <br/><br/>
 
-  <img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge&logo=github" />
-  <img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge&logo=github" />
-  <img src="https://img.shields.io/github/languages/top/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge&logo=python" />
-  <img src="https://img.shields.io/github/license/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge&color=7aa2f7" />
+  <img src="https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?style=for-the-badge&color=9ece6a" />
+  <img src="https://img.shields.io/badge/Python-3.9+-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Telegram-Bot-blue?style=for-the-badge&logo=telegram" />
 
 </div>
 
