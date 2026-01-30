@@ -3,7 +3,8 @@ from BROKENXMUSIC import app
 import asyncio
 
 link = "https://telegra.ph/file/522b3538da93c082b62dd.mp4"
-text = "👉🏻 ᴅᴏɴ'ᴛ ᴡᴀᴛᴄʜ ᴛʜɪs 👈🏻"
+text = "🙄👉🏻 ᴅᴏɴ'ᴛ ᴡᴀᴛᴄʜ ᴛʜɪs 👈🏻🙄\n"
+repo = "https://github.com/mrxbroken011/BROKEN-X-MUSIC/fork"
 
 @app.on_message(filters.command("repo"))
 async def start(_, msg):
@@ -24,6 +25,6 @@ async def start(_, msg):
     await app.send_video(
         chat_id=msg.chat.id, 
         video=link, 
-        caption=f"<b>{text}</b>", 
+        caption=f"<b>{text}</b>[❤‍🔥GIT REPO]({repo})", 
         has_spoiler=True
     )
