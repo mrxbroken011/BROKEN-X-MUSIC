@@ -1,7 +1,9 @@
 <h1 align="center">𝗕𝗥𝗢𝗞𝗘𝗡 ✘ 𝗠𝘂𝘀𝗶𝗰</h1>
 
 <p align="center">
-<a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC"><img src="https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&theme=tokyonight&border_radius=15" /></a></p>
+    <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&theme=tokyonight&border_radius=15" /></a>
+</p>
 
 <p align="center">
     <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers">
