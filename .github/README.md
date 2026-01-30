@@ -6,6 +6,12 @@
     <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9+-black?logo=python" width="80" alt="Python"/></a>
     <a href="https://telegram.dog/BROKENXNETWORK1"><img src="https://img.shields.io/badge/Join-Telegram-blue?logo=telegram" width="80" alt="Telegram"/></a>
 </p>
+
+<p align="center" width="100"> 𝗦𝗔𝗬 𝗡𝗢 𝗧𝗢 𝗧𝗛𝗜𝗦 𝗘𝗥𝗥𝗢𝗥... 👇🏻</p>
+<pre>
+ERROR:[youtube] 5rOiW_xY-kc:Sign in to confirm you’re not a bot. This helps protect our community. Learn more
+</pre>
+
 <p align="center">
 A high-performance, cookie-free Telegram Music Bot engineered for stability, scalability, and clean audio streaming.
 </p>
