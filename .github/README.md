@@ -1,4 +1,9 @@
-<h1 align="center">Broken ✘ Music</h1>
+<h1 align="center">𝗕𝗥𝗢𝗞𝗘𝗡 ✘ 𝗠𝘂𝘀𝗶𝗰</h1>
+
+<div align="middle" width="100px">
+  
+[![BROKEN-X-MUSIC](https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&show_icons=true&theme=golden&hide_title=true&border_radius=06&border_color=#ffffff&custom_title=BROKEN-X-MUSIC)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
+</div>
 
 <p align="center">
     <a href="https://github.com/mrxbroken011/BROKEN-X-MUSIC/stargazers"><img src="https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?color=black&logo=github&label=Stars" width="80" alt="Stars"/></a>
@@ -13,16 +18,6 @@
 ERROR:[youtube] 
     5rOiW_xY-kc:Sign in to confirm you’re not a bot. This helps protect our community. Learn more
 ```
-
-<div align="center">
-
-
-[![Stars](https://img.shields.io/github/stars/mrxbroken011/BROKEN-X-MUSIC?logo=github)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
-[![Forks](https://img.shields.io/github/forks/mrxbroken011/BROKEN-X-MUSIC?style=social)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
-[![Issues](https://img.shields.io/github/issues/mrxbroken011/BROKEN-X-MUSIC)](https://github.com/mrxbroken011/BROKEN-X-MUSIC/issues)
-[![License](https://img.shields.io/github/license/mrxbroken011/BROKEN-X-MUSIC)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
-
-</div>
 
 <p align="center">
 A high-performance, cookie-free Telegram Music Bot engineered for stability, scalability, and clean audio streaming.
