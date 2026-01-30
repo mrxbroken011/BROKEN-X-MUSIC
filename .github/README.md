@@ -3,7 +3,6 @@
 <div align="center">
 
 [![BROKEN-X-MUSIC](https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&theme=tokyonight&hide_border=true)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
-
 </div>
 
 <p align="center">
