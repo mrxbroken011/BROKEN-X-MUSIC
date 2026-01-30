@@ -1,8 +1,7 @@
 <h1 align="center">𝗕𝗥𝗢𝗞𝗘𝗡 ✘ 𝗠𝘂𝘀𝗶𝗰</h1>
 
-<div align="middle" width="100px">
-  
-[![BROKEN-X-MUSIC](https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&show_icons=true&theme=golden&hide_title=true&border_radius=06&border_color=#ffffff&custom_title=BROKEN-X-MUSIC)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
+<<div align="center">
+[![BROKEN-X-MUSIC](https://github-readme-stats.vercel.app/api/pin/?username=mrxbroken011&repo=BROKEN-X-MUSIC&show_icons=true&theme=radical&hide_title=true&border_radius=15&border_color=0A0A0A)](https://github.com/mrxbroken011/BROKEN-X-MUSIC)
 </div>
 
 <p align="center">
