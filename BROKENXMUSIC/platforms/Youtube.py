@@ -10,14 +10,13 @@ from py_yt import VideosSearch
 from ..utils.database import is_on_off
 from ..utils.formatters import time_to_seconds
 from BROKENXMUSIC import app
-import logging
 from BROKENXMUSIC import LOGGER
 from urllib.parse import urlparse
 
+
 from brokenxapi import BrokenXAPI
 
-BROKENX_API_KEY = os.getenv("YTKEY")  # Get from https://t.me/ABOUTBROKENX
-
+API_KEY = os.getenv("YTKEY")  # Get it for free from https://t.me/aboutbrokenx
 
 
 
@@ -65,7 +64,7 @@ async def get_telegram_file(telegram_url: str, video_id: str, file_type: str) ->
         return None
 
 
-# ================= AUDIO DOWNLOAD (SDK) =================
+
 
 async def download_song(link: str) -> str:
     video_id = link.split("v=")[-1].split("&")[0] if "v=" in link else link
@@ -84,27 +83,16 @@ async def download_song(link: str) -> str:
         return file_path
 
     try:
-        async with BrokenXAPI(api_key=BROKENX_API_KEY) as api:
-            logger.info("🔄 [AUDIO] Requesting via BROKENXAPI SDK")
+        async with BrokenXAPI(api_key=API_KEY) as api:
             data = await api.download(video_id, "audio")
 
         if not data or "telegram_url" not in data:
             logger.error(f"❌ [AUDIO] Invalid SDK response: {data}")
             return None
 
-        telegram_url = data["telegram_url"]
-        logger.info(f"🔗 [AUDIO] Telegram URL: {telegram_url}")
-
-        downloaded_file = await get_telegram_file(
-            telegram_url, video_id, "audio"
+        return await get_telegram_file(
+            data["telegram_url"], video_id, "audio"
         )
-
-        if downloaded_file:
-            logger.info(f"🎉 [AUDIO] Successfully downloaded: {video_id}")
-            return downloaded_file
-
-        logger.error(f"⚠️ [AUDIO] Telegram download failed: {video_id}")
-        return None
 
     except Exception as e:
         logger.error(f"❌ [AUDIO] Exception: {e}")
@@ -130,27 +118,16 @@ async def download_video(link: str) -> str:
         return file_path
 
     try:
-        async with BrokenXAPI(api_key=BROKENX_API_KEY) as api:
-            logger.info("🔄 [VIDEO] Requesting via BROKENXAPI SDK")
+        async with BrokenXAPI(api_key=API_KEY) as api:
             data = await api.download(video_id, "video")
 
         if not data or "telegram_url" not in data:
             logger.error(f"❌ [VIDEO] Invalid SDK response: {data}")
             return None
 
-        telegram_url = data["telegram_url"]
-        logger.info(f"🔗 [VIDEO] Telegram URL: {telegram_url}")
-
-        downloaded_file = await get_telegram_file(
-            telegram_url, video_id, "video"
+        return await get_telegram_file(
+            data["telegram_url"], video_id, "video"
         )
-
-        if downloaded_file:
-            logger.info(f"🎉 [VIDEO] Successfully downloaded: {video_id}")
-            return downloaded_file
-
-        logger.error(f"⚠️ [VIDEO] Telegram download failed: {video_id}")
-        return None
 
     except Exception as e:
         logger.error(f"❌ [VIDEO] Exception: {e}")
@@ -158,17 +135,34 @@ async def download_video(link: str) -> str:
 
 
 
-
 class YouTubeAPI:
     def __init__(self):
         self.base = "https://www.youtube.com/watch?v="
         self.regex = r"(?:youtube\.com|youtu\.be)"
+        self.status = "https://www.youtube.com/oembed?url="
         self.listbase = "https://youtube.com/playlist?list="
+        self.reg = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
 
     async def exists(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
             link = self.base + link
         return bool(re.search(self.regex, link))
+
+    async def url(self, message_1: Message) -> Union[str, None]:
+        messages = [message_1]
+        if message_1.reply_to_message:
+            messages.append(message_1.reply_to_message)
+        for message in messages:
+            if message.entities:
+                for entity in message.entities:
+                    if entity.type == MessageEntityType.URL:
+                        text = message.text or message.caption
+                        return text[entity.offset: entity.offset + entity.length]
+            elif message.caption_entities:
+                for entity in message.caption_entities:
+                    if entity.type == MessageEntityType.TEXT_LINK:
+                        return entity.url
+        return None
 
     async def details(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
@@ -176,34 +170,10 @@ class YouTubeAPI:
         if "&" in link:
             link = link.split("&")[0]
         results = VideosSearch(link, limit=1)
-        r = (await results.next())["result"][0]
-        return (
-            r["title"],
-            r["duration"],
-            int(time_to_seconds(r["duration"])) if r["duration"] else 0,
-            r["thumbnails"][0]["url"].split("?")[0],
-            r["id"],
-        )
-
-    async def download(
-        self,
-        link: str,
-        mystic,
-        video: Union[bool, str] = None,
-        videoid: Union[bool, str] = None,
-    ):
-        if videoid:
-            link = self.base + link
-
-        try:
-            if video:
-                file = await download_video(link)
-            else:
-                file = await download_song(link)
-
-            return (file, True) if file else (None, False)
-
-        except Exception as e:
-            logger = LOGGER("BrokenXAPI")
-            logger.error(f"❌ Download failed: {e}")
-            return None, False
+        for result in (await results.next())["result"]:
+            title = result["title"]
+            duration_min = result["duration"]
+            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+            vidid = result["id"]
+            duration_sec = int(time_to_seconds(duration_min)) if duration_min else 0
+        return title, duration_min, duration_sec, thumbnail, vidid
